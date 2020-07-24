@@ -17,7 +17,7 @@ const Loja = db.sequelize.define('lojas', {
         allowNull: false
     },
     numero: {
-        type: db.Sequelize.STRING,
+        type: db.Sequelize.INTEGER,
         allowNull: false
     },
     bairro: {
