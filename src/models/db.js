@@ -1,14 +1,11 @@
 const Sequelize = require('sequelize')
-const settings = require('../../settings')
+const config = require('../config')
 
-const sequelize = new Sequelize(settings.DB.NAME, 
-    settings.DB.USERNAME, 
-    settings.DB.PASSWORD, {
-        host: settings.DB.HOST,
-        dialect: settings.DB.DIALECT
+const sequelize = new Sequelize(config.DB.NAME, 
+    config.DB.USERNAME, 
+    config.DB.PASSWORD, {
+        host: config.DB.HOST,
+        dialect: config.DB.DIALECT
     })
 
-module.exports = {
-    Sequelize: Sequelize,
-    sequelize: sequelize
-}
+module.exports = {Sequelize, sequelize}

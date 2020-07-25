@@ -18,7 +18,7 @@ const produtos = require('../controllers/produtos')
  *          '400':
  *              description: Erro inesperado 
  */
-app.get("/produtos/:lojaid", produtos.getAll);
+app.get("/produtos/:lojaid", produtos.retornaTodosProdutosDaLoja);
 
 /**
  * @swagger
@@ -74,7 +74,7 @@ app.get("/produtos/:lojaid", produtos.getAll);
  *          '400':
  *              description: Erro inesperado 
  */
-app.post("/produtos/adicionar", produtos.create);
+app.post("/produtos/adicionar", produtos.criaNovoProduto);
 
 /**
  * @swagger
@@ -93,7 +93,7 @@ app.post("/produtos/adicionar", produtos.create);
  *          '400':
  *              description: Erro inesperado 
  */
-app.get("/produto/:id", produtos.getById);
+app.get("/produto/:id", produtos.retornaProduto);
 
 /**
  * @swagger
@@ -153,7 +153,7 @@ app.get("/produto/:id", produtos.getById);
  *          '400':
  *              description: Erro inesperado 
  */
-app.post("/produtos/alterar", produtos.update);
+app.post("/produtos/alterar", produtos.atualizaProduto);
 
 /**
  * @swagger
@@ -179,6 +179,6 @@ app.post("/produtos/alterar", produtos.update);
  *          '400':
  *              description: Falha
  */
-app.post("/produtos/remover", produtos.remove);
+app.post("/produtos/remover", produtos.removeProduto);
 
 module.exports = app;

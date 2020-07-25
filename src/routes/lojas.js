@@ -12,7 +12,7 @@ const lojas = require('../controllers/lojas')
  *          '400':
  *              description: Erro inesperado 
  */
-app.get("/lojas", lojas.getAll);
+app.get("/lojas", lojas.retornaTodasLojas);
 
 /**
  * @swagger
@@ -87,7 +87,7 @@ app.get("/lojas", lojas.getAll);
  *          '400':
  *              description: Erro inesperado 
  */
-app.post("/lojas/adicionar", lojas.create);
+app.post("/lojas/adicionar", lojas.criaNovaLoja);
 
 /**
  * @swagger
@@ -106,7 +106,7 @@ app.post("/lojas/adicionar", lojas.create);
  *          '400':
  *              description: Erro inesperado 
  */
-app.get("/loja/:id", lojas.getById);
+app.get("/loja/:id", lojas.retornaLoja);
 
 /**
  * @swagger
@@ -184,7 +184,7 @@ app.get("/loja/:id", lojas.getById);
  *          '400':
  *              description: Erro inesperado 
  */
-app.post("/lojas/alterar", lojas.update);
+app.post("/lojas/alterar", lojas.atualizaLoja);
 
 /**
  * @swagger
@@ -210,6 +210,6 @@ app.post("/lojas/alterar", lojas.update);
  *          '400':
  *              description: Falha
  */
-app.post("/lojas/remover", lojas.remove);
+app.post("/lojas/remover", lojas.removeLoja);
 
 module.exports = app;

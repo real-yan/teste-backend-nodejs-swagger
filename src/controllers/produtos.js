@@ -1,10 +1,9 @@
-const Produto = require('../models/Produto')
+const ProdutoService = require('../services/ProdutoService')
+const ProdutoServiceInstance = new ProdutoService()
 
-const getAll = (req, res) => {
-    Produto.findAll({
-        where: {
-            lojaId: req.params.lojaid
-        }
+const retornaTodosProdutosDaLoja = (req, res) => {
+    ProdutoServiceInstance.findAllByCondition({
+        lojaId: req.params.lojaid
     }).then((result) => {
         res.status(200).json(result)    
     }).catch((error) => {
@@ -13,8 +12,8 @@ const getAll = (req, res) => {
     })
 }
 
-const getById = (req, res) => {
-    Produto.findByPk(req.params.id).then((result) => {
+const retornaProduto = (req, res) => {
+    ProdutoServiceInstance.findById(req.params.id).then((result) => {
         res.status(200).json(result)
     }).catch((error) => {
         console.log(error)
@@ -22,8 +21,8 @@ const getById = (req, res) => {
     })
 }
 
-const create = (req, res) => {
-    Produto.create({
+const criaNovoProduto = (req, res) => {
+    ProdutoServiceInstance.create({
         lojaId: req.body.lojaId,
         codigo: req.body.codigo,
         nome: req.body.nome,
@@ -41,8 +40,8 @@ const create = (req, res) => {
     })
 }
 
-const update = (req, res) => {
-    Produto.update({
+const atualizaProduto = (req, res) => {
+    ProdutoServiceInstance.update(req.body.id, {
         lojaId: req.body.lojaId,
         codigo: req.body.codigo,
         nome: req.body.nome,
@@ -52,10 +51,6 @@ const update = (req, res) => {
         validade: req.body.validade,
         valor: req.body.valor,
         obs: req.body.obs
-    }, {
-        where: {
-            id: req.body.id    
-        }
     }).then((result) => {
         res.status(200).send("Produto alterado com sucesso com sucesso.")
     }).catch((error) => {
@@ -64,12 +59,8 @@ const update = (req, res) => {
     })
 }
 
-const remove = (req, res) => {
-    Produto.destroy({
-        where: {
-            id: req.body.id
-        }
-    }).then(() => {
+const removeProduto = (req, res) => {
+    ProdutoServiceInstance.delete(req.body.id).then(() => {
         res.status(200).send("Produto removido com sucesso.")
     }).catch((error) => {
         console.log(error)
@@ -77,4 +68,4 @@ const remove = (req, res) => {
     })
 }
 
-module.exports = {getAll, getById, create, update, remove}
+module.exports = {retornaTodosProdutosDaLoja, retornaProduto, criaNovoProduto, atualizaProduto, removeProduto}

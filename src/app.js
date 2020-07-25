@@ -3,7 +3,7 @@ const express = require('express')
 const bodyParser = require('body-parser')
 const swaggerJSDoc = require('swagger-jsdoc')
 const swaggerUi = require ('swagger-ui-express')
-const settings = require('../settings')
+const config = require('./config')
 const index = require('./routes/index')
 const app = express()
 
@@ -15,14 +15,14 @@ app.use(bodyParser.json())
 const swaggerOptions = {
     swaggerDefinition: {
         info: {
-            title: "Teste Backend API",
-            version: "1.0.0",
-            description: "Teste Node.js para o cadastro de lojas e produtos.",
+            title: config.PROJ.TITLE,
+            version: config.PROJ.VERSION,
+            description: config.PROJ.DESCRIPTION,
             contact: {
-                name: "Yan Real"
+                name: config.PROJ.OWNER
             },
-            basePath: "/api-doc",
-            servers: ["https://"+ settings.ENV.HOST +":"+ settings.ENV.PORT]
+            basePath: config.ENV.BASEPATH,
+            servers: ["https://"+ config.ENV.HOST +":"+ config.ENV.PORT]
         }
     },
     apis: ["./routes/lojas.js", "./routes/produtos.js"]
@@ -34,6 +34,6 @@ app.use('/api-doc', swaggerUi.serve, swaggerUi.setup(swaggerDocs))
 app.use(index)
 
 // Execução do Server
-app.listen(settings.ENV.PORT, () => {
-    console.log("Servidor executando na porta " + settings.ENV.PORT +".")
+app.listen(config.ENV.PORT, () => {
+    console.log("Servidor executando na porta " + config.ENV.PORT +".")
 })

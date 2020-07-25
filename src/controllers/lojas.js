@@ -1,7 +1,8 @@
-const Loja = require('../models/Loja')
+const LojaService = require('../services/LojaService')
+const LojaServiceInstance = new LojaService()
 
-const getAll = (req, res) => {
-    Loja.findAll().then((result) => {
+const retornaTodasLojas = (req, res) => {
+    LojaServiceInstance.findAll().then((result) => {
         res.status(200).json(result)   
     }).catch((error) => {
         console.log(error)
@@ -9,8 +10,8 @@ const getAll = (req, res) => {
     })
 }
 
-const getById = (req, res) => {
-    Loja.findByPk(req.params.id).then((result) => {
+const retornaLoja = (req, res) => {
+    LojaServiceInstance.findById(req.params.id).then((result) => {
         res.status(200).json(result)
     }).catch((error) => {
         console.log(error) 
@@ -18,8 +19,8 @@ const getById = (req, res) => {
     })
 }
 
-const create = (req, res) => {
-    Loja.create({
+const criaNovaLoja = (req, res) => {
+    LojaServiceInstance.create({
         nome: req.body.nome,
         matriz: req.body.matriz,
         cnpj: req.body.cnpj,
@@ -43,8 +44,8 @@ const create = (req, res) => {
     })
 }
 
-const update = (req, res) => {
-    Loja.update({
+const atualizaLoja = (req, res) => {
+    LojaServiceInstance.update(req.body.id, {
         nome: req.body.nome,
         matriz: req.body.matriz,
         cnpj: req.body.cnpj,
@@ -60,10 +61,6 @@ const update = (req, res) => {
         email: req.body.email,
         responsavel: req.body.responsavel,
         obs: req.body.obs
-    }, {
-        where: {
-            id: req.body.id    
-        }
     }).then((result) => {
         res.status(200).send("Loja alterada com sucesso com sucesso.")
     }).catch((error) => {
@@ -72,12 +69,8 @@ const update = (req, res) => {
     })
 }
 
-const remove = (req, res) => {
-    Loja.destroy({
-        where: {
-            id: req.body.id
-        }
-    }).then(() => {
+const removeLoja = (req, res) => {
+    LojaServiceInstance.delete(req.body.id).then(() => {
         res.status(200).send("Loja removida com sucesso.")
     }).catch((error) => {
         console.log(error)
@@ -85,4 +78,4 @@ const remove = (req, res) => {
     })
 }
 
-module.exports = {getAll, getById, create, update, remove}
+module.exports = {retornaTodasLojas, retornaLoja, criaNovaLoja, atualizaLoja, removeLoja}
