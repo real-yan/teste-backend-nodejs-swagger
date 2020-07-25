@@ -6,21 +6,19 @@ const getAll = (req, res) => {
             lojaId: req.params.lojaid
         }
     }).then((result) => {
-        console.log("Produtos retornados com sucesso.")
-        res.json(result)   
+        res.status(200).json(result)    
     }).catch((error) => {
-        console.log("Houve um erro ao tentar retornar os produtos do banco.")
         console.log(error)
+        res.status(400).send("Houve um erro ao tentar retornar os produtos do banco.")
     })
 }
 
 const getById = (req, res) => {
     Produto.findByPk(req.params.id).then((result) => {
-        console.log("Produto "+ result.nome +" retornado com sucesso.")
-        res.json(result)
+        res.status(200).json(result)
     }).catch((error) => {
-        console.log("Houve um erro ao tentar retornar o produto do banco.")
-        console.log(error)   
+        console.log(error)
+        res.status(400).send("Houve um erro ao tentar retornar o produto do banco.")   
     })
 }
 
@@ -36,11 +34,10 @@ const create = (req, res) => {
         valor: req.body.valor,
         obs: req.body.obs
     }).then((result) => {
-        console.log("Produto salvo com sucesso.")
-        res.json(result)
+        res.status(201).send("Produto salvo com sucesso.")
     }).catch((error) => {
-        console.log("Houve um erro ao tentar salvar o produto no banco.")
         console.log(error)
+        res.status(400).send("Houve um erro ao tentar salvar o produto no banco.")
     })
 }
 
@@ -57,14 +54,13 @@ const update = (req, res) => {
         obs: req.body.obs
     }, {
         where: {
-            id: req.params.id    
+            id: req.body.id    
         }
     }).then((result) => {
-        console.log("Produto alterado com sucesso com sucesso.")
-        res.json(result)
+        res.status(200).send("Produto alterado com sucesso com sucesso.")
     }).catch((error) => {
-        console.log("Houve um erro ao tentar alterar o produto no banco.")
         console.log(error)
+        res.status(400).send("Houve um erro ao tentar alterar o produto no banco.")
     })
 }
 
@@ -74,11 +70,10 @@ const remove = (req, res) => {
             id: req.body.id
         }
     }).then(() => {
-        console.log("Produto removido com sucesso.")
-        res.json(result)
+        res.status(200).send("Produto removido com sucesso.")
     }).catch((error) => {
-        console.log("Houve um erro ao tentar remover o produto do banco.")
         console.log(error)
+        res.status(400).send("Houve um erro ao tentar remover o produto do banco.")
     })
 }
 

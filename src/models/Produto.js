@@ -29,7 +29,7 @@ const Produto = db.sequelize.define('produtos', {
         allowNull: false
     },
     fabricacao: db.Sequelize.DATE,
-    validade: db.Sequelize.STRING,
+    validade: db.Sequelize.DATE,
     valor: {
         type: db.Sequelize.FLOAT,
         allowNull: false

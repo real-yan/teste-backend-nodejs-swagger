@@ -2,21 +2,19 @@ const Loja = require('../models/Loja')
 
 const getAll = (req, res) => {
     Loja.findAll().then((result) => {
-        console.log("Lojas retornadas com sucesso.")
         res.status(200).json(result)   
     }).catch((error) => {
-        res.status(400).send("Houve um erro ao tentar retornar as lojas do banco.")
         console.log(error)
+        res.status(400).send("Houve um erro ao tentar retornar as lojas do banco.")
     })
 }
 
 const getById = (req, res) => {
     Loja.findByPk(req.params.id).then((result) => {
-        console.log("Loja "+ result.nome +" retornada com sucesso.")
         res.status(200).json(result)
     }).catch((error) => {
-        res.status(400).send("Houve um erro ao tentar retornar a loja do banco.")
-        console.log(error)   
+        console.log(error) 
+        res.status(400).send("Houve um erro ao tentar retornar a loja do banco.")  
     })
 }
 
@@ -38,10 +36,10 @@ const create = (req, res) => {
         responsavel: req.body.responsavel,
         obs: req.body.obs
     }).then((result) => {
-        res.status(200).send("Loja salva com sucesso.")
+        res.status(201).send("Loja salva com sucesso.")
     }).catch((error) => {
-        res.status(400).send("Houve um erro ao tentar salvar a loja no banco.")
         console.log(error)
+        res.status(400).send("Houve um erro ao tentar salvar a loja no banco.")
     })
 }
 
@@ -64,13 +62,13 @@ const update = (req, res) => {
         obs: req.body.obs
     }, {
         where: {
-            id: req.params.id    
+            id: req.body.id    
         }
     }).then((result) => {
         res.status(200).send("Loja alterada com sucesso com sucesso.")
     }).catch((error) => {
-        res.status(400).send("Houve um erro ao tentar alterar a loja no banco.")
         console.log(error)
+        res.status(400).send("Houve um erro ao tentar alterar a loja no banco.")
     })
 }
 
@@ -82,8 +80,8 @@ const remove = (req, res) => {
     }).then(() => {
         res.status(200).send("Loja removida com sucesso.")
     }).catch((error) => {
-        res.status(400).send("Houve um erro ao tentar remover a loja do banco.")
         console.log(error)
+        res.status(400).send("Houve um erro ao tentar remover a loja do banco.")
     })
 }
 

@@ -25,7 +25,7 @@ const swaggerOptions = {
             servers: ["https://"+ settings.ENV.HOST +":"+ settings.ENV.PORT]
         }
     },
-    apis: ["./routes/lojas.js"]
+    apis: ["./routes/lojas.js", "./routes/produtos.js"]
 }
 const swaggerDocs = swaggerJSDoc(swaggerOptions)
 app.use('/api-doc', swaggerUi.serve, swaggerUi.setup(swaggerDocs))
