@@ -1,5 +1,8 @@
-const db = require('./db')
+const db = require('../config/db')
 
+/**
+ * Modelagem da tabela lojas
+ */
 const Loja = db.sequelize.define('lojas', {
     nome: {
         type: db.Sequelize.STRING,

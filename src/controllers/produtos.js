@@ -1,6 +1,11 @@
 const ProdutoService = require('../services/ProdutoService')
 const ProdutoServiceInstance = new ProdutoService()
 
+/**
+ * @description Retorna todos os produtos de uma loja
+ * @param req {express.Request} Objeto de requisição
+ * @param res {express.Response} Objeto de resposta
+ */
 const retornaTodosProdutosDaLoja = (req, res) => {
     ProdutoServiceInstance.findAllByCondition({
         lojaId: req.params.lojaid
@@ -12,6 +17,11 @@ const retornaTodosProdutosDaLoja = (req, res) => {
     })
 }
 
+/**
+ * @description Retorna um produto
+ * @param req {express.Request} Objeto de requisição
+ * @param res {express.Response} Objeto de resposta
+ */
 const retornaProduto = (req, res) => {
     ProdutoServiceInstance.findById(req.params.id).then((result) => {
         res.status(200).json(result)
@@ -21,6 +31,11 @@ const retornaProduto = (req, res) => {
     })
 }
 
+/**
+ * @description Cria um novo produto
+ * @param req {express.Request} Objeto de requisição
+ * @param res {express.Response} Objeto de resposta
+ */
 const criaNovoProduto = (req, res) => {
     ProdutoServiceInstance.create({
         lojaId: req.body.lojaId,
@@ -40,6 +55,11 @@ const criaNovoProduto = (req, res) => {
     })
 }
 
+/**
+ * @description Atualiza um produto existente
+ * @param req {express.Request} Objeto de requisição
+ * @param res {express.Response} Objeto de resposta
+ */
 const atualizaProduto = (req, res) => {
     ProdutoServiceInstance.update(req.body.id, {
         lojaId: req.body.lojaId,
@@ -59,6 +79,11 @@ const atualizaProduto = (req, res) => {
     })
 }
 
+/**
+ * @description Remove um produto
+ * @param req {express.Request} Objeto de requisição
+ * @param res {express.Response} Objeto de resposta
+ */
 const removeProduto = (req, res) => {
     ProdutoServiceInstance.delete(req.body.id).then(() => {
         res.status(200).send("Produto removido com sucesso.")

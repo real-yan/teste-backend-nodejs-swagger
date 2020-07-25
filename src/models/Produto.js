@@ -1,6 +1,9 @@
-const db = require('./db')
+const db = require('../config/db')
 const Loja = require('./Loja')
 
+/**
+ * Modelagem da tabela produtos
+ */
 const Produto = db.sequelize.define('produtos', {
     lojaId: {
         type: db.Sequelize.INTEGER,
@@ -36,7 +39,6 @@ const Produto = db.sequelize.define('produtos', {
     },
     obs: db.Sequelize.STRING
 })
-
 Loja.hasMany(Produto)
 
 module.exports = Produto

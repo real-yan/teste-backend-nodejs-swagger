@@ -1,6 +1,11 @@
 const LojaService = require('../services/LojaService')
 const LojaServiceInstance = new LojaService()
 
+/**
+ * @description Retorna todas as lojas
+ * @param req {express.Request} Objeto de requisição
+ * @param res {express.Response} Objeto de resposta
+ */
 const retornaTodasLojas = (req, res) => {
     LojaServiceInstance.findAll().then((result) => {
         res.status(200).json(result)   
@@ -10,6 +15,11 @@ const retornaTodasLojas = (req, res) => {
     })
 }
 
+/**
+ * @description Retorna uma loja
+ * @param req {express.Request} Objeto de requisição
+ * @param res {express.Response} Objeto de resposta
+ */
 const retornaLoja = (req, res) => {
     LojaServiceInstance.findById(req.params.id).then((result) => {
         res.status(200).json(result)
@@ -19,6 +29,11 @@ const retornaLoja = (req, res) => {
     })
 }
 
+/**
+ * @description Cria uma nova loja
+ * @param req {express.Request} Objeto de requisição
+ * @param res {express.Response} Objeto de resposta
+ */
 const criaNovaLoja = (req, res) => {
     LojaServiceInstance.create({
         nome: req.body.nome,
@@ -44,6 +59,11 @@ const criaNovaLoja = (req, res) => {
     })
 }
 
+/**
+ * @description Atualiza uma loja existente
+ * @param req {express.Request} Objeto de requisição
+ * @param res {express.Response} Objeto de resposta
+ */
 const atualizaLoja = (req, res) => {
     LojaServiceInstance.update(req.body.id, {
         nome: req.body.nome,
@@ -69,6 +89,11 @@ const atualizaLoja = (req, res) => {
     })
 }
 
+/**
+ * @description Remove uma loja
+ * @param req {express.Request} Objeto de requisição
+ * @param res {express.Response} Objeto de resposta
+ */
 const removeLoja = (req, res) => {
     LojaServiceInstance.delete(req.body.id).then(() => {
         res.status(200).send("Loja removida com sucesso.")
