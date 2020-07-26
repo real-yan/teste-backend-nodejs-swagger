@@ -2,7 +2,7 @@
 
 O intuito deste projeto é o teste das habilidades do profissional em desenvolver o backend de uma aplicação utilizando Node.js em conjunto com o banco de dados MySQL e documentação Swagger.
 
-O projeto em si constitui uma API Restful para o cadastro, alteração e remoção de lojas e produtos de uma determinada empresa.
+O projeto em si é constituido por uma API Restful para o cadastro, alteração e remoção de lojas e produtos de uma determinada empresa.
 
 ## Instalação
 
@@ -18,7 +18,7 @@ O banco de dados não necessita ser configurado localmente visto que a aplicaç�
 
 Executar a aplicação encontrada na pasta ```src/```
 
-```nodejs
+```bash
 node app.js
 ```
 
