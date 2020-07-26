@@ -20,7 +20,8 @@
     "url": "git+https://github.com/real-yan/teste-backend-nodejs-swagger.git"
   },
   "keywords": [
-    "node", "swagger"
+    "node",
+    "swagger"
   ],
   "author": "Yan Real",
   "license": "ISC",

@@ -1,5 +1,5 @@
 const swaggerJSDoc = require('swagger-jsdoc')
-const settings = require('./settings')
+const settings = require('../settings')
 
 /**
  * Configura documentação via Swagger

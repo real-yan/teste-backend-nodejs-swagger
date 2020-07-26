@@ -24,6 +24,9 @@ const retornaTodosProdutosDaLoja = (req, res) => {
  */
 const retornaProduto = (req, res) => {
     ProdutoServiceInstance.findById(req.params.id).then((result) => {
+        if(!result) {
+            res.status(404).send("Não foi encontrado nenhum resultado para o ID informado.")    
+        }
         res.status(200).json(result)
     }).catch((error) => {
         console.log(error)
