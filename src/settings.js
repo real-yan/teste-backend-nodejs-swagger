@@ -12,9 +12,9 @@ module.exports = {
     },   
     DB: {
         DIALECT: 'mysql',
-        HOST: 'localhost',
-        NAME: 'testebackend',
-        USERNAME: 'root',
-        PASSWORD: 'Sol2019!'
+        HOST: 'testenodejsdb.cbjpauviwalz.us-east-1.rds.amazonaws.com',
+        NAME: 'testenodejs',
+        USERNAME: 'Administrator',
+        PASSWORD: 'CMteste2020!'
     }
 }

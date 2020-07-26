@@ -2,7 +2,7 @@ const express = require('express')
 const bodyParser = require('body-parser')
 const swaggerUi = require('swagger-ui-express')
 const swaggerDocs = require('./config/swaggerDocs')
-const settings = require('./config/settings')
+const settings = require('./settings')
 const index = require('./routes/index')
 const app = express()
 

@@ -1,5 +1,5 @@
 const Sequelize = require('sequelize')
-const settings = require('./settings')
+const settings = require('../settings')
 
 /**
  * Configura conexão com o banco via Sequelize

@@ -1,5 +1,5 @@
 {
-  "name": "testebackend",
+  "name": "teste-backend-nodejs-swagger",
   "version": "1.0.0",
   "description": "Teste Node.js para o cadastro de lojas e produtos.",
   "main": "app.js",
@@ -17,15 +17,15 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/real-yan/TesteBackend.git"
+    "url": "git+https://github.com/real-yan/teste-backend-nodejs-swagger.git"
   },
   "keywords": [
-    "node"
+    "node", "swagger"
   ],
   "author": "Yan Real",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/real-yan/TesteBackend/issues"
+    "url": "https://github.com/real-yan/teste-backend-nodejs-swagger/issues"
   },
-  "homepage": "https://github.com/real-yan/TesteBackend#readme"
+  "homepage": "https://github.com/real-yan/teste-backend-nodejs-swagger#readme"
 }
