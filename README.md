@@ -6,13 +6,13 @@ O projeto em si é constituido por uma API Restful para o cadastro, alteração 
 
 ## Instalação
 
-Utilizar o npm para realizar a instalação dos módulos da aplicação referênciadas no ```package.json```.
+Utilizar o npm para realizar a instalação dos módulos da aplicação referenciadas no ```package.json```.
 
 ```bash
 npm install
 ```
 
-O banco de dados não necessita ser configurado localmente visto que a aplicação aponta para uma base de dados em cloud no Amazon RDS
+O banco de dados não necessita ser configurado localmente visto que a aplicação aponta para uma base de dados em cloud no Amazon RDS.
 
 ## Execução
 
