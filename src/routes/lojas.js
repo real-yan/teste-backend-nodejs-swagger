@@ -29,13 +29,7 @@ app.get("/lojas", lojas.retornaTodasLojas);
  *              properties:
  *                  nome:
  *                      type: string
- *                  matriz:
- *                      type: boolean
  *                  cnpj:
- *                      type: string
- *                  inscrestadual:
- *                      type: string
- *                  inscrmunicipal:
  *                      type: string
  *                  rua:
  *                      type: string
@@ -55,8 +49,6 @@ app.get("/lojas", lojas.retornaTodasLojas);
  *                      type: string
  *                  responsavel:
  *                      type: string
- *                  obs:
- *                      type: string
  *              required:
  *                - nome
  *                - cnpj
@@ -67,10 +59,7 @@ app.get("/lojas", lojas.retornaTodasLojas);
  *                - uf
  *              example:
  *                  nome: Mercado da Rua XV
- *                  matriz: false
  *                  cnpj: 14.330.017/0002-11
- *                  inscrestadual: 85363643-5
- *                  inscrmunicipal:
  *                  rua: Rua XV
  *                  numero: 1500
  *                  bairro: Bairro da Rua XV
@@ -80,7 +69,6 @@ app.get("/lojas", lojas.retornaTodasLojas);
  *                  telefone: (85)99999-9999
  *                  email: emailexemplo@hotmail.com
  *                  responsavel: Yan Real
- *                  obs:    
  *      responses: 
  *          '201':
  *              description: Criada
@@ -110,27 +98,24 @@ app.get("/loja/:id", lojas.retornaLoja);
 
 /**
  * @swagger
- * /lojas/alterar:
+ * /lojas/alterar/{id}:
  *  post:
  *      summary: Altera o cadastro de uma loja.
  *      parameters:
+ *        - name: id
+ *          in: path
+ *          type: integer
+ *          required: true
+ *          description: ID da loja desejada.
  *        - name: loja
  *          in: body
  *          description: Conteúdo da loja a ser alterada.
  *          schema:
  *              type: object
  *              properties:
- *                  id:
- *                      type: integer
  *                  nome:
  *                      type: string
- *                  matriz:
- *                      type: boolean
  *                  cnpj:
- *                      type: string
- *                  inscrestadual:
- *                      type: string
- *                  inscrmunicipal:
  *                      type: string
  *                  rua:
  *                      type: string
@@ -150,10 +135,7 @@ app.get("/loja/:id", lojas.retornaLoja);
  *                      type: string
  *                  responsavel:
  *                      type: string
- *                  obs:
- *                      type: string
  *              required:
- *                - id
  *                - nome
  *                - cnpj
  *                - rua
@@ -162,12 +144,8 @@ app.get("/loja/:id", lojas.retornaLoja);
  *                - cidade
  *                - uf
  *              example:
- *                  id: 1
  *                  nome: Mercadinho da Rua XVI
- *                  matriz: true
  *                  cnpj: 14.330.017/0001-11
- *                  inscrestadual: 85363643-6
- *                  inscrmunicipal:
  *                  rua: Rua XVI
  *                  numero: 1500
  *                  bairro: Bairro da Rua XVI
@@ -177,14 +155,13 @@ app.get("/loja/:id", lojas.retornaLoja);
  *                  telefone: (85)99999-9999
  *                  email: emailexemplo@hotmail.com
  *                  responsavel: Yan Real
- *                  obs:  
  *      responses: 
  *          '200':
  *              description: Sucesso
  *          '400':
  *              description: Erro inesperado 
  */
-app.post("/lojas/alterar", lojas.atualizaLoja);
+app.post("/lojas/alterar/:id", lojas.atualizaLoja);
 
 /**
  * @swagger

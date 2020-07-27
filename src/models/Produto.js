@@ -31,13 +31,10 @@ const Produto = db.sequelize.define('produtos', {
         type: db.Sequelize.INTEGER,
         allowNull: false
     },
-    fabricacao: db.Sequelize.DATE,
-    validade: db.Sequelize.DATE,
     valor: {
         type: db.Sequelize.FLOAT,
         allowNull: false
     },
-    obs: db.Sequelize.STRING
 })
 Loja.hasMany(Produto)
 

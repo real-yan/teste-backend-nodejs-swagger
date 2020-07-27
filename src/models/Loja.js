@@ -8,13 +8,10 @@ const Loja = db.sequelize.define('lojas', {
         type: db.Sequelize.STRING,
         allowNull: false
     },
-    matriz: db.Sequelize.BOOLEAN,
     cnpj: {
         type: db.Sequelize.STRING,
         allowNull: false
     },
-    inscrestadual: db.Sequelize.STRING,
-    inscrmunicipal: db.Sequelize.STRING,
     rua: {
         type: db.Sequelize.STRING,
         allowNull: false
@@ -38,8 +35,7 @@ const Loja = db.sequelize.define('lojas', {
     },
     telefone: db.Sequelize.STRING,
     email: db.Sequelize.STRING,
-    responsavel: db.Sequelize.STRING,
-    obs: db.Sequelize.STRING
+    responsavel: db.Sequelize.STRING
 })
 
 module.exports = Loja

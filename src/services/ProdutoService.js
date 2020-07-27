@@ -24,7 +24,7 @@ class ProdutoService {
      * @returns {Promise} Retorna o resultado da operação
      */
     findAllByCondition(condition) {
-        return this.DBServiceInstance.findAll(condition)
+        return this.DBServiceInstance.findAllByCondition(condition)
     }
 
     /**

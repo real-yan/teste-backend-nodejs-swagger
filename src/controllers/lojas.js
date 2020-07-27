@@ -40,10 +40,7 @@ const retornaLoja = (req, res) => {
 const criaNovaLoja = (req, res) => {
     LojaServiceInstance.create({
         nome: req.body.nome,
-        matriz: req.body.matriz,
         cnpj: req.body.cnpj,
-        inscrestadual: req.body.inscrestadual,
-        inscrmunicipal: req.body.inscrmunicipal,
         rua: req.body.rua,
         numero: req.body.numero,
         bairro: req.body.bairro,
@@ -52,8 +49,7 @@ const criaNovaLoja = (req, res) => {
         uf: req.body.uf,
         telefone: req.body.telefone,
         email: req.body.email,
-        responsavel: req.body.responsavel,
-        obs: req.body.obs
+        responsavel: req.body.responsavel
     }).then((result) => {
         res.status(201).send("Loja salva com sucesso.")
     }).catch((error) => {
@@ -68,12 +64,9 @@ const criaNovaLoja = (req, res) => {
  * @param res {express.Response} Objeto de resposta
  */
 const atualizaLoja = (req, res) => {
-    LojaServiceInstance.update(req.body.id, {
+    LojaServiceInstance.update(req.params.id, {
         nome: req.body.nome,
-        matriz: req.body.matriz,
         cnpj: req.body.cnpj,
-        inscrestadual: req.body.inscrestadual,
-        inscrmunicipal: req.body.inscrmunicipal,
         rua: req.body.rua,
         numero: req.body.numero,
         bairro: req.body.bairro,
@@ -82,8 +75,7 @@ const atualizaLoja = (req, res) => {
         uf: req.body.uf,
         telefone: req.body.telefone,
         email: req.body.email,
-        responsavel: req.body.responsavel,
-        obs: req.body.obs
+        responsavel: req.body.responsavel
     }).then((result) => {
         res.status(200).send("Loja alterada com sucesso com sucesso.")
     }).catch((error) => {

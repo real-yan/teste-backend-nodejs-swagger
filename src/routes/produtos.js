@@ -43,10 +43,6 @@ app.get("/produtos/:lojaid", produtos.retornaTodosProdutosDaLoja);
  *                      type: string
  *                  quantidade:
  *                      type: integer
- *                  fabricacao:
- *                      type: date
- *                  validade:
- *                      type: date
  *                  valor:
  *                      type: float
  *                  obs:
@@ -64,8 +60,6 @@ app.get("/produtos/:lojaid", produtos.retornaTodosProdutosDaLoja);
  *                  nome: Alpino 200g
  *                  classificacao: Doces
  *                  quantidade: 3
- *                  fabricacao: 2020-04-30T00:00:00.000Z
- *                  validade: 2020-07-30T00:00:00.000Z
  *                  valor: 5.00
  *                  obs:    
  *      responses: 
@@ -97,10 +91,15 @@ app.get("/produto/:id", produtos.retornaProduto);
 
 /**
  * @swagger
- * /produtos/alterar:
+ * /produtos/alterar/{id}:
  *  post:
  *      summary: Altera o cadastro de um produto.
  *      parameters:
+ *        - name: id
+ *          in: path
+ *          type: integer
+ *          required: true
+ *          description: ID do produto desejada.
  *        - name: produto
  *          in: body
  *          required: true
@@ -108,8 +107,6 @@ app.get("/produto/:id", produtos.retornaProduto);
  *          schema:
  *              type: object
  *              properties:
- *                  id:
- *                      type: integer
  *                  lojaId:
  *                      type: integer
  *                  codigo:
@@ -120,16 +117,9 @@ app.get("/produto/:id", produtos.retornaProduto);
  *                      type: string
  *                  quantidade:
  *                      type: integer
- *                  fabricacao:
- *                      type: date
- *                  validade:
- *                      type: date
  *                  valor:
  *                      type: float
- *                  obs:
- *                      type: string
  *              required:
- *                - id
  *                - lojaId
  *                - codigo
  *                - nome
@@ -137,23 +127,19 @@ app.get("/produto/:id", produtos.retornaProduto);
  *                - quantidade
  *                - valor
  *              example:
- *                  id: 1
  *                  lojaId: 1
  *                  codigo: 789
  *                  nome: Alpino 200g
  *                  classificacao: Doces
  *                  quantidade: 8
- *                  fabricacao: 2020-04-30T00:00:00.000Z
- *                  validade: 2020-07-30T00:00:00.000Z
  *                  valor: 5.50
- *                  obs:   
  *      responses: 
  *          '200':
  *              description: Sucesso
  *          '400':
  *              description: Erro inesperado 
  */
-app.post("/produtos/alterar", produtos.atualizaProduto);
+app.post("/produtos/alterar/:id", produtos.atualizaProduto);
 
 /**
  * @swagger
