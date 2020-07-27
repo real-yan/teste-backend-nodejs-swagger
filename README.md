@@ -22,6 +22,11 @@ Por padrão, a execução é realizada na porta ```3000```, mas essa informaçã
 ## Detalhes da API
 A API é disponibilizada atrvés dos seguintes endpoints:
 
+Endpoint para acesso à documentação do Swagger
+```
+GET /api-doc
+```
+
 Endpoint para cadastrar uma nova loja.
 ```
 POST /lojas/adicionar 
