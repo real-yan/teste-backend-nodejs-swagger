@@ -3,10 +3,10 @@ O intuito desta aplicação é desenvolver uma API REST via Node.js e documentá
 
 O projeto em si constitui-se por uma aplicação web para o cadastro, alteração e remoção de lojas e produtos de uma determinada empresa.
 
+<i>* Devido às cobranças do AWS por dias de uso da instância do RDS, o banco de dados MySQL foi removido de lá, sendo necessário a utilização local de uma base de dados. Para vinculá-la à aplicação, basta atribuir as informações necessárias no arquivo settings.js.</i>
+
 ## Instalação
 Para instalar esta aplicação, é necessário primeiramente ter o NodeJS instalado na máquina. Feito isso, basta clonar o repositório em um diretório local e instalar as dependências referenciadas no package.json via npm.
-
-<i>* Devido às cobranças do AWS por dias de uso da instância do RDS, o banco de dados MySQL foi removido de lá, sendo necessário a utilização local de uma base de dados. Para vinculá-la à aplicação, basta atribuir as informações necessárias no arquivo settings.js.</i>
 
 ```bash
 npm install
