@@ -1,4 +1,4 @@
-# Teste de Backend utilizando Nodejs para elaboração de uma API RESTful e sua documentação
+# Backend utilizando Nodejs para elaboração de uma API RESTful e sua documentação
 O intuito desta aplicação é desenvolver uma API REST via Node.js e documentá-la via Swagger. Para desenvolver a aplicação foi utilizado o framework Express.
 
 O projeto em si constitui-se por uma aplicação web para o cadastro, alteração e remoção de lojas e produtos de uma determinada empresa.
